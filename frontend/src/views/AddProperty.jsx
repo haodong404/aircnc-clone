@@ -178,7 +178,7 @@ function AddProperty() {
                     <TextField
                         id="bathrooms-input"
                         name="bathrooms"
-                        label="卫生加数"
+                        label="卫生间数"
                         type="number"
                         value={formValues.bathrooms}
                         onChange={handleInputChange}

@@ -45,7 +45,7 @@ function Register({ dispatch }) {
 
         } catch (err) {
             console.error(err);
-            alert(err.response.data.error);
+            alert(err);
         }
     }
     return (

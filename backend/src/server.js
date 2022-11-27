@@ -136,6 +136,8 @@ app.delete(
   '/listings/:listingid',
   catchErrors(
     authed(async (req, res, email) => {
+      if (req.header.emial != em) {
+      }
       const { listingid } = req.params;
       await assertOwnsListing(email, listingid);
       await removeListing(listingid);

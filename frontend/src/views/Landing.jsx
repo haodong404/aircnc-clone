@@ -6,7 +6,7 @@ import Card1 from '../components/Card1';
 
 function Landing({user, dispatch}) {
     return (
-        <div style={{marginTop:"70px"}}>
+        <div>
         <div className='home'>
             <Banner/>
             <div className='home__section'>
