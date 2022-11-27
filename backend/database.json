@@ -41,6 +41,13 @@
       "sessionActive": false
     }
   },
+  "admins": {
+    "admin1": {
+      "name": "admin1",
+      "password": "123",
+      "sessionActive": true
+    }
+  },
   "listings": {
     "176715663": {
       "title": "Penthouse",

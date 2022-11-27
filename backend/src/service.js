@@ -13,10 +13,11 @@ const DATABASE_FILE = './database.json';
 ***************************************************************/
 
 let users = {};
+let admins = {};
 let listings = {};
 let bookings = {};
 
-const update = (users, listings, bookings) =>
+const update = (users, admins, listings, bookings) =>
   new Promise((resolve, reject) => {
     lock.acquire('saveData', () => {
       try {
@@ -25,6 +26,7 @@ const update = (users, listings, bookings) =>
           JSON.stringify(
             {
               users,
+              admins,
               listings,
               bookings,
             },
@@ -39,10 +41,11 @@ const update = (users, listings, bookings) =>
     });
   });
 
-export const save = () => update(users, listings, bookings);
+export const save = () => update(users, admins, listings, bookings);
 export const reset = () => {
   update({}, {}, {});
   users = {};
+  admins = {};
   listings = {};
   bookings = {};
 };
@@ -50,6 +53,7 @@ export const reset = () => {
 try {
   const data = JSON.parse(fs.readFileSync(DATABASE_FILE));
   users = data.users;
+  admins = data.admins;
   listings = data.listings;
   bookings = data.bookings;
 } catch {
@@ -86,7 +90,7 @@ export const getEmailFromAuthorization = (authorization) => {
   try {
     const token = authorization.replace('Bearer ', '');
     const { email } = jwt.verify(token, JWT_SECRET);
-    if (!(email in users)) {
+    if (!(email in users) && !(email in admins)) {
       throw new AccessError('Invalid Token');
     }
     return email;
@@ -104,6 +108,11 @@ export const login = (email, password) =>
     } else if (email && email in users) {
       if (users[email].password === password) {
         users[email].sessionActive = true;
+        resolve(jwt.sign({ email }, JWT_SECRET, { algorithm: 'HS256' }));
+      }
+    } else if (email && email in admins) {
+      if (admins[email].password === password) {
+        admins[email].sessionActive = true;
         resolve(jwt.sign({ email }, JWT_SECRET, { algorithm: 'HS256' }));
       }
     }
