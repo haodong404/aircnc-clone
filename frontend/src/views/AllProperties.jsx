@@ -104,10 +104,10 @@ function Listings() {
           value={citySearch}
           onChange={(e) => { setcitySearch(e.target.value); settitleSearch("") }}
         />
-        <Button style={{ margin: '10px',backgroundColor:'grey', color:'white', fontWeight:'bold', border:'1px solid black' }} variant="outlined">order by ratings</Button>
-        <Button style={{ margin: '10px',backgroundColor:'grey', color:'white', fontWeight:'bold', border:'1px solid black' }} variant="outlined" onClick={() => { setpOrder(!pOrder) }}>order by price</Button>
+        <Button style={{ margin: '10px',backgroundColor:'grey', color:'white', fontWeight:'bold', border:'1px solid black' }} variant="outlined">按评价排序</Button>
+        <Button style={{ margin: '10px',backgroundColor:'grey', color:'white', fontWeight:'bold', border:'1px solid black' }} variant="outlined" onClick={() => { setpOrder(!pOrder) }}>按价格排序</Button>
         <FormControl sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="demo-simple-select-helper-label" style={{ color: 'white'}}>Bedrooms</InputLabel>
+        <InputLabel id="demo-simple-select-helper-label" style={{ color: 'white'}}>房间数</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
@@ -123,7 +123,7 @@ function Listings() {
           <MenuItem value={3}>3</MenuItem>
         </Select>
       </FormControl>
-        <Button style={{ margin: '10px',backgroundColor:'grey', color:'white', fontWeight:'bold', border:'1px solid black' }} variant="outlined" >Select date range</Button>
+        <Button style={{ margin: '10px',backgroundColor:'grey', color:'white', fontWeight:'bold', border:'1px solid black' }} variant="outlined" >选择日期</Button>
       </div>
       <div style={{ marginLeft: '60px'}}>
 

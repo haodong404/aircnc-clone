@@ -20,7 +20,7 @@ function Register({ dispatch }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if(re!==password) {
-            alert("Password do not match");
+            alert("两次密码不一样");
             return;
         }
         try {
@@ -65,7 +65,7 @@ function Register({ dispatch }) {
                     {/* <LockOutlinedIcon /> */}
                 </Avatar>
                 <Typography component="h1" variant="h5">
-                    Register
+                    注册
                 </Typography>
                 <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                     <TextField
@@ -132,7 +132,7 @@ function Register({ dispatch }) {
                         style={{backgroundColor:'gray'}}
                         onClick={(e) => handleSubmit(e)}
                     >
-                        Register
+                        注册
                     </Button>
 
                 </Box>

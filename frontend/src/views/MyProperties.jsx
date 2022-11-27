@@ -2,9 +2,6 @@ import React, {useState, useEffect} from 'react'
 import Card from '../components/Card';
 import axios from 'axios';
 
-
-
-
 function MyProperties() {
   const token = localStorage.getItem('token');
   const name = localStorage.getItem('name');

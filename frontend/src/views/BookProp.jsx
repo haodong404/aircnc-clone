@@ -134,11 +134,11 @@ function BookProp() {
                 </div>
 
                 {/* Bedroom */}
-                <h4 style={{ marginLeft: "50px" }}>Bedrooms: {listing?.metadata?.bedrooms}</h4>
-                <h4 style={{ marginLeft: "50px" }}>Beds: {listing?.metadata?.bathrooms}</h4>
-                <h4 style={{ marginLeft: "50px" }}>Bathrooms: {listing?.metadata?.bathrooms}</h4>
-                <p style={{ marginLeft: "50px" }}>{"Amenities: "+listing?.metadata?.amenities}</p>
-                <h3 style={{ marginLeft: "50px" }}> Reviews</h3>
+                <h4 style={{ marginLeft: "50px" }}>客房数: {listing?.metadata?.bedrooms}</h4>
+                <h4 style={{ marginLeft: "50px" }}>床位数: {listing?.metadata?.bathrooms}</h4>
+                <h4 style={{ marginLeft: "50px" }}>卫生间数: {listing?.metadata?.bathrooms}</h4>
+                <p style={{ marginLeft: "50px" }}>{"设施: "+listing?.metadata?.amenities}</p>
+                <h3 style={{ marginLeft: "50px" }}> 评论</h3>
                 
                 {listing?.reviews?.length > 0 &&<div style={{marginLeft:'50px', marginBottom:'10px'}}>
                     {listing.reviews.map((r, i)=>{
@@ -151,7 +151,7 @@ function BookProp() {
                     <TextField
                         id="title-input"
                         name="rating"
-                        label="Write a review"
+                        label="写下你的评价"
                         type="text"
                         multiline
                         rows={3}
@@ -160,7 +160,7 @@ function BookProp() {
                         style={{ marginBottom: "10px" , width:'60%'}}
                     />
                     <Button variant="contained" type="submit" style={{ backgroundColor: 'grey', marginLeft: '10px' }}>
-                        Submit
+                        提交
                     </Button>
                     
                  </form>
@@ -170,7 +170,7 @@ function BookProp() {
                     {listing.published ? <Button style={{ backgroundColor: 'red', marginLeft: '10px', borderRadius: "10px", color: 'white' }} variant="outlined" onClick={() => {
                         handleBooking()
                         navigate('/myBooking');
-                    }} >Book</Button> : <tagg style={{ marginLeft: '10px' }}>Unpublished, can't book</tagg>}
+                    }} >订购</Button> : <tagg style={{ marginLeft: '10px' }}>还未发布</tagg>}
                 </div>
 
 

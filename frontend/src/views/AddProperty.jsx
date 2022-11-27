@@ -98,7 +98,7 @@ function AddProperty() {
                     <TextField
                         id="title-input"
                         name="title"
-                        label="Title"
+                        label="标题"
                         type="text"
                         value={formValues.title}
                         onChange={handleInputChange}
@@ -107,7 +107,7 @@ function AddProperty() {
                     <TextField
                         id="thumbnail-input"
                         name="thumbnail"
-                        label="Thumbnail"
+                        label="缩略图"
                         type="text"
                         value={formValues.thumbnail}
                         onChange={handleInputChange}
@@ -116,7 +116,7 @@ function AddProperty() {
                     <TextField
                         id="outlined-multiline-static"
                         name="amenities"
-                        label="Amenities"
+                        label="设施"
                         multiline
                         rows={3}
                         style={{ marginBottom: "10px" }}
@@ -124,7 +124,7 @@ function AddProperty() {
                     <TextField
                         id="thumbnail-input"
                         name="img1"
-                        label="Image"
+                        label="图片1"
                         type="text"
                         value={formValues.img1}
                         onChange={handleInputChange}
@@ -133,7 +133,7 @@ function AddProperty() {
                     <TextField
                         id="thumbnail-input"
                         name="img2"
-                        label="Image"
+                        label="图片2"
                         type="text"
                         value={formValues.img2}
                         onChange={handleInputChange}
@@ -142,7 +142,7 @@ function AddProperty() {
                     <TextField
                         id="thumbnail-input"
                         name="img3"
-                        label="Image"
+                        label="图片3"
                         type="text"
                         value={formValues.img3}
                         onChange={handleInputChange}
@@ -151,7 +151,7 @@ function AddProperty() {
                     <TextField
                         id="price-input"
                         name="price"
-                        label="Price"
+                        label="价格"
                         type="number"
                         value={formValues.price}
                         onChange={handleInputChange}
@@ -160,7 +160,7 @@ function AddProperty() {
                     <TextField
                         id="bedrooms-input"
                         name="bedrooms"
-                        label="Bedrooms"
+                        label="客房数"
                         type="number"
                         value={formValues.bedrooms}
                         onChange={handleInputChange}
@@ -169,7 +169,7 @@ function AddProperty() {
                     <TextField
                         id="bedrooms-input"
                         name="beds"
-                        label="Beds"
+                        label="床位数"
                         type="number"
                         value={formValues.beds}
                         onChange={handleInputChange}
@@ -178,17 +178,17 @@ function AddProperty() {
                     <TextField
                         id="bathrooms-input"
                         name="bathrooms"
-                        label="Bathrooms"
+                        label="卫生加数"
                         type="number"
                         value={formValues.bathrooms}
                         onChange={handleInputChange}
                         style={{ marginBottom: "10px" }}
                     />
-                    <h4>Address</h4>
+                    <h4>地址</h4>
                     <TextField
                         id="addressLine1-input"
                         name="addressLine1"
-                        label="Line 1"
+                        label="地址1"
                         type="text"
                         value={formValues.addressLine1}
                         onChange={handleInputChange}
@@ -197,7 +197,7 @@ function AddProperty() {
                     <TextField
                         id="addressLine2-input"
                         name="addressLine2"
-                        label="Line 2"
+                        label="地址2"
                         type="text"
                         value={formValues.addressLine2}
                         onChange={handleInputChange}
@@ -206,14 +206,14 @@ function AddProperty() {
                     <TextField
                         id="addressLine3-input"
                         name="addressLine3"
-                        label="Line 3"
+                        label="地址3"
                         type="text"
                         value={formValues.addressLine3}
                         onChange={handleInputChange}
                         style={{ marginBottom: "10px" }}
                     />
                     <Button variant="contained" type="submit" style={{ backgroundColor: 'grey' }}>
-                        Submit
+                        提交
                     </Button>
 
 

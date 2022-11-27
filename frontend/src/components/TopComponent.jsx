@@ -29,8 +29,6 @@ function Header({ user, dispatch }) {
         }
     }
 
-    
-
     return (
         <AppBar style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', backgroundColor: 'grey'}}>
             <div style={{ marginLeft: "20px" }}>
@@ -39,14 +37,14 @@ function Header({ user, dispatch }) {
             
 
             {user && <><div style={{ justifyContent: 'right', margin: '10px' }}>
-            <Button  style={{ margin: '10px',backgroundColor:'grey', color:'white', fontWeight:'bold', border:'1px solid black' }} onClick={() => { navigate('/properties') }}>All Properties</Button>
-                <Button  style={{ margin: '10px',backgroundColor:'grey', color:'white', fontWeight:'bold', border:'1px solid black'}} onClick={() => { navigate('/addListing') }}>Create Lists</Button>
-                <Button  style={{ margin: '10px',backgroundColor:'grey', color:'white', fontWeight:'bold', border:'1px solid black' }}  onClick={() => { navigate('/myBooking') }}>Live Book Requests</Button>
-                <Button style={{ margin: '10px',backgroundColor:'grey', color:'white', fontWeight:'bold', border:'1px solid black' }} onClick={() => { navigate('/myProperties') }}>My Properties</Button>
+            <Button  style={{ margin: '10px',backgroundColor:'grey', color:'white', fontWeight:'bold', border:'1px solid black' }} onClick={() => { navigate('/properties') }}>所有民宿</Button>
+                <Button  style={{ margin: '10px',backgroundColor:'grey', color:'white', fontWeight:'bold', border:'1px solid black'}} onClick={() => { navigate('/addListing') }}>发布民宿</Button>
+                <Button  style={{ margin: '10px',backgroundColor:'grey', color:'white', fontWeight:'bold', border:'1px solid black' }}  onClick={() => { navigate('/myBooking') }}>我的订单</Button>
+                <Button style={{ margin: '10px',backgroundColor:'grey', color:'white', fontWeight:'bold', border:'1px solid black' }} onClick={() => { navigate('/myProperties') }}>个人信息</Button>
                 
             </div></>}
-            {user ? <Button label="Logout" onClick={(e) => { handleLogout(e) }} style={{ margin: '15px', height: "50px", color: "white" }} ><Avatar>{name.substring(0,1).toUpperCase()}</Avatar> <h6 style={{marginLeft: "10px"}}>Logout</h6></Button>
-                : <Button color="secondary" variant="contained" color="primary" style={{ margin: '10px',backgroundColor:'darkgray' }} onClick={() => { navigate("/login") }}>Sign In</Button>
+            {user ? <Button label="Logout" onClick={(e) => { handleLogout(e) }} style={{ margin: '15px', height: "50px", color: "white" }} ><Avatar>{name.substring(0,1).toUpperCase()}</Avatar> <h6 style={{marginLeft: "10px"}}>注销</h6></Button>
+                : <Button color="secondary" variant="contained" style={{ margin: '10px',backgroundColor:'darkgray' }} onClick={() => { navigate("/login") }}>登录</Button>
             }
 
         </AppBar>

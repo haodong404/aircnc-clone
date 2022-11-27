@@ -70,17 +70,17 @@ function Card({ data, handleDelete, ob, fetchTrigger, setfetchTrigger }) {
                 <span style={{ fontSize: '12px' }}>{data.address.line2}</span><br />
                 <span style={{ fontSize: '12px' }}>{data.address.line3}</span><br />
                 {
-                    data.control && <div ><Button onClick={() => { localStorage.setItem('listing', data.id.toString()); navigate('/editListing') }} style={{ margin: '5px', backgroundColor: 'grey', color: 'white' }}>Edit</Button>
+                    data.control && <div ><Button onClick={() => { localStorage.setItem('listing', data.id.toString()); navigate('/editListing') }} style={{ margin: '5px', backgroundColor: 'grey', color: 'white' }}>编辑</Button>
                         <Button onClick={() => { handleDelete(data.id) }} style={{ margin: '5px', backgroundColor: 'grey', color: 'white' }}>Delete</Button>
-                        {!ob[data.id]?.published && <Button onClick={() => { handlePublish(data.id) }} style={{ margin: '5px', backgroundColor: 'grey', color: 'white' }}>Publish</Button>}
-                        {ob[data.id]?.published && <Button onClick={() => { handleUnpublish(data.id) }} style={{ margin: '5px', backgroundColor: 'grey', color: 'white' }}>Unpublish</Button>}
+                        {!ob[data.id]?.published && <Button onClick={() => { handlePublish(data.id) }} style={{ margin: '5px', backgroundColor: 'grey', color: 'white' }}>发布</Button>}
+                        {ob[data.id]?.published && <Button onClick={() => { handleUnpublish(data.id) }} style={{ margin: '5px', backgroundColor: 'grey', color: 'white' }}>取消发布</Button>}
                     </div>}
                 {
                     !data.control && <Button variant="outlined" style={{ marginTop: '5px', backgroundColor: 'grey', color: 'white' }} onClick={() => {
                         localStorage.setItem('id', data.id);
                         navigate('/book');
 
-                    }}>Book</Button>
+                    }}>选定</Button>
                 }
 
 

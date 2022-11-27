@@ -9,9 +9,9 @@ function BCard({booking, data, handleAccept, handleDecline, handleDelete}) {
             <div className="card__info">
                 <h4>{'Status: '+ booking?.status}</h4>
                 <h4>{'TotalPrice: $ '+ booking?.totalPrice}</h4>
-                {booking.status==="pending"&&<><Button onClick={()=>{handleAccept(booking.id)}}>Accept</Button>
-                <Button onClick={()=>{handleDecline(booking.id)}}>Deny</Button></>}
-                <Button onClick={()=>{handleDelete(booking.id)}}>Delete</Button>
+                {booking.status==="pending"&&<><Button onClick={()=>{handleAccept(booking.id)}}>同意</Button>
+                <Button onClick={()=>{handleDecline(booking.id)}}>拒绝</Button></>}
+                <Button onClick={()=>{handleDelete(booking.id)}}>删除</Button>
             </div>
         </div>
     )

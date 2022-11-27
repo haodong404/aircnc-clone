@@ -62,7 +62,7 @@ function Login() {
             {/* <LockOutlinedIcon /> */}
           </Avatar>
           <Typography component="h1" variant="h5" >
-            Sign in
+            登录
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -71,7 +71,7 @@ function Login() {
               required
               fullWidth
               id="email"
-              label="Email Address"
+              label="电子邮箱"
               name="email"
               autoComplete="email"
               autoFocus
@@ -84,7 +84,7 @@ function Login() {
               required
               fullWidth
               name="password"
-              label="Password"
+              label="密码"
               type="password"
               id="password"
               onChange={(e)=>{
@@ -103,7 +103,7 @@ function Login() {
                 handleSubmit();
               }}
             >
-              Sign In
+              登录
             </Button>
             <Grid container>
               
@@ -111,7 +111,7 @@ function Login() {
                 <Link href="#" variant="body2"  onClick={()=> { 
                   history('/register');
                 }}>
-                  {"Don't have an account? Sign Up"}
+                  {"还没有账号？立即注册"}
                 </Link>
               </Grid>
             </Grid>

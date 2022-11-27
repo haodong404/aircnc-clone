@@ -10,8 +10,6 @@ import PeopleIcon from '@mui/icons-material/People';
 
 // DATE PICKER COMPONENT
 function Search({startDate,endDate,setEndDate,setStartDate}) {
-    
-    
 
     const selectionRange = {
         startDate: startDate,
@@ -28,7 +26,7 @@ function Search({startDate,endDate,setEndDate,setStartDate}) {
                 [selectionRange]} onChange=
                 {handleSelect} />
             <h2>
-                Number of guests
+                人数
                 <PeopleIcon />
             </h2>
             <input min={0}
