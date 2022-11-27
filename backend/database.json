@@ -1,0 +1,207 @@
+{
+  "users": {
+    "q": {
+      "name": "q",
+      "password": "q",
+      "sessionActive": true
+    },
+    "e": {
+      "name": "e",
+      "password": "e",
+      "sessionActive": false
+    },
+    "j": {
+      "name": "j",
+      "password": "jj",
+      "sessionActive": false
+    },
+    "vcoty233@163.com": {
+      "name": "vcoty233@163.com",
+      "password": "123456",
+      "sessionActive": true
+    },
+    "1234@123.com": {
+      "name": "1234@123.com",
+      "password": "123456",
+      "sessionActive": true
+    }
+  },
+  "listings": {
+    "176715663": {
+      "title": "Penthouse",
+      "owner": "q",
+      "address": {
+        "line1": "Cozy Apartment L-1 in Dacha",
+        "line2": "Arambol near Arambol Beach",
+        "line3": "Goa"
+      },
+      "price": "555",
+      "thumbnail": "https://a0.muscache.com/im/pictures/62f3a31a-01c2-4c0f-8e3e-3039b2c2ea0c.jpg?im_w=960",
+      "metadata": {
+        "bedrooms": "5",
+        "beds": "4",
+        "bathrooms": "2"
+      },
+      "reviews": [],
+      "availability": [
+        {
+          "start": "2021-11-18T10:19:23.731Z",
+          "end": "2021-12-30T18:30:00.000Z"
+        }
+      ],
+      "published": true,
+      "postedOn": "2021-11-18T10:19:23.745Z"
+    },
+    "654085618": {
+      "title": "Monte Residency",
+      "owner": "q",
+      "address": {
+        "line1": "Monte Residency",
+        "line2": "Boilers Park",
+        "line3": "New York"
+      },
+      "price": "666",
+      "thumbnail": "https://prod.liveshare.vsengsaas.visualstudio.com/join?7F3CF8DBA1A6FFC4194DB9A4650919E6A186",
+      "metadata": {
+        "bedrooms": "6",
+        "beds": "6",
+        "bathrooms": "1",
+        "amenities": "",
+        "imgs": [
+          "https://www.hardrockhotels.com/maldives/files/6016/13432873_ImageLargeWidth.jpg",
+          "https://www.ianthesantorini.com/assets/img/accommodation/apartments-studios/showcase/01-ianthe-oia-santorini-studios-for-two.jpg",
+          "http://cdn.home-designing.com/wp-content/uploads/2018/05/Scandinavian-Green-Living-Room-Decor.jpg"
+        ]
+      },
+      "reviews": [],
+      "availability": [],
+      "published": false,
+      "postedOn": null
+    },
+    "776007729": {
+      "title": "Passions de Goa",
+      "owner": "q",
+      "address": {
+        "line1": "1,  sm street",
+        "line2": "Anjuna",
+        "line3": "Goa, India"
+      },
+      "price": "900",
+      "thumbnail": "https://a0.muscache.com/im/pictures/9e56d25a-dd05-402f-b858-0d21490459d4.jpg?im_w=960",
+      "metadata": {
+        "bedrooms": "6",
+        "beds": "2",
+        "bathrooms": "1"
+      },
+      "reviews": [],
+      "availability": [],
+      "published": false,
+      "postedOn": null
+    },
+    "850844663": {
+      "title": "Hello",
+      "owner": "1234@123.com",
+      "address": {
+        "line1": "123123",
+        "line2": "13",
+        "line3": "21312312"
+      },
+      "price": "1000",
+      "thumbnail": "1234",
+      "metadata": {
+        "bedrooms": "100",
+        "beds": "1000",
+        "bathrooms": "100",
+        "amenities": "",
+        "imgs": []
+      },
+      "reviews": [],
+      "availability": [],
+      "published": false,
+      "postedOn": null
+    },
+    "923624290": {
+      "title": "Lacata de Papele",
+      "owner": "q",
+      "address": {
+        "line1": "这是一家很有设计感和艺术感的民宿，挺适合周末和家人一起去",
+        "line2": "居住放松，有投影仪可以和家人看电影，大大的落地窗，可以欣",
+        "line3": "赏外面的美景，还包含早餐，去迪士尼乐园也包接送，老板人"
+      },
+      "price": "699",
+      "thumbnail": "https://a0.muscache.com/im/pictures/miso/Hosting-43143863/original/b5e35094-1d0c-42e2-b6b6-d8dcfd4202e2.jpeg?im_w=960",
+      "metadata": {
+        "bedrooms": "6",
+        "beds": "6",
+        "bathrooms": "4",
+        "amenities": "Lake view, Waterfront, Kitchen, Wifi, Free parking on premises, Pool, Hot tub, TV with standard cable/satellite, Air conditioning, Bath",
+        "imgs": [
+          "https://a0.muscache.com/im/pictures/1f0054fb-3ce5-40cb-9e73-876f76b935f1.jpg?im_w=720",
+          "https://a0.muscache.com/im/pictures/ab2e80e9-a788-48c8-97c8-cb87c8e247cf.jpg?im_w=1200",
+          "https://a0.muscache.com/im/pictures/miso/Hosting-43143863/original/25ee2b20-a718-4b66-84e8-b593e3fa9bda.jpeg?im_w=1200"
+        ]
+      },
+      "reviews": [
+        {
+          "text": "Loved the Place thanks for the service"
+        },
+        {
+          "text": "Beautiful place to hangout."
+        },
+        {
+          "text": "Affordable! favourite detination for holidays"
+        }
+      ],
+      "availability": [],
+      "published": false,
+      "postedOn": null
+    },
+    "997127482": {
+      "title": "Basalt Palace",
+      "owner": "j",
+      "address": {
+        "line1": "Turtle House, jj",
+        "line2": "Kasper Road",
+        "line3": "New York"
+      },
+      "price": "55",
+      "thumbnail": "http://cdn.home-designing.com/wp-content/uploads/2018/05/Scandinavian-Green-Living-Room-Decor.jpg",
+      "metadata": {
+        "bedrooms": "2",
+        "beds": "5",
+        "bathrooms": "5"
+      },
+      "reviews": [],
+      "availability": [
+        {
+          "start": "2021-11-18T11:54:09.721Z",
+          "end": "2021-12-30T18:30:00.000Z"
+        }
+      ],
+      "published": true,
+      "postedOn": "2021-11-18T11:54:09.727Z"
+    }
+  },
+  "bookings": {
+    "247528520": {
+      "owner": "q",
+      "dateRange": {
+        "start": "2021-11-21T18:30:00.000Z",
+        "end": "2021-11-24T18:30:00.000Z"
+      },
+      "totalPrice": 165,
+      "listingId": "997127482",
+      "status": "accepted"
+    },
+    "561083567": {
+      "owner": "e",
+      "dateRange": {
+        "start": "2021-11-08T18:30:00.000Z",
+        "end": "2021-11-22T18:30:00.000Z"
+      },
+      "totalPrice": 7770,
+      "listingId": "176715663",
+      "status": "accepted"
+    }
+  }
+}
