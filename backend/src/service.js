@@ -17,6 +17,16 @@ let admins = {};
 let listings = {};
 let bookings = {};
 
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '111111',
+  port: 3306,
+  database: 'Terminal',
+});
+connection.connect();
+
 const update = (users, admins, listings, bookings) =>
   new Promise((resolve, reject) => {
     lock.acquire('saveData', () => {
@@ -52,10 +62,44 @@ export const reset = () => {
 
 try {
   const data = JSON.parse(fs.readFileSync(DATABASE_FILE));
-  users = data.users;
+  connection.query('select * from users', function (err, result) {
+    if (err) {
+      console.log('Error', err.message);
+      return;
+    }
+    for (let i = 0; i < result.length; i++) {
+      users[result[i].name] = result[i];
+    }
+  });
+  connection.query('select * from admins', function (err, result) {
+    if (err) {
+      console.log('Error', err.message);
+      return;
+    }
+    for (let i = 0; i < result.length; i++) {
+      users[result[i].name] = result[i];
+    }
+  });
   admins = data.admins;
-  listings = data.listings;
-  bookings = data.bookings;
+  connection.query('select * from listings', function (err, result) {
+    if (err) {
+      console.log('Error', err.message);
+      return;
+    }
+    for (let i = 0; i < result.length; i++) {
+      listings[result[i].name] = result[i];
+    }
+  });
+
+  connection.query('select * from bokkings', function (err, result) {
+    if (err) {
+      console.log('Error', err.message);
+      return;
+    }
+    for (let i = 0; i < result.length; i++) {
+      users[result[i].name] = result[i];
+    }
+  });
 } catch {
   console.log('WARNING: No database found, create a new one');
   save();
@@ -179,6 +223,7 @@ export const assertOwnsBooking = (email, bookingId) =>
       reject(new InputError('Invalid booking ID'));
     } else if (bookings[bookingId].owner !== email && !(email in admins)) {
       reject(new InputError('User does not own this booking'));
+      ``;
     } else {
       resolve();
     }
