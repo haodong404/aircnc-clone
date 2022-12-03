@@ -6,13 +6,12 @@ import Search from './Search';
 function DateComp({startDate, endDate, setEndDate, setStartDate}) {
     const[showSearch, setShowSearch] = useState(false);
     return (
-        <div className='banner'>
-            <div className='banner__search' style={{color:'green'}}>
+        <div >
+            <div className="w-full">
                 {showSearch && <Search startDate={startDate} endDate={endDate} setEndDate={setEndDate} setStartDate={setStartDate}/>}
-                <Button onClick={() => setShowSearch(!showSearch)} 
-                className='banner__searchButton'
+                <Button className="w-full" onClick={() => setShowSearch(!showSearch)} 
                 variant='outlined'>
-                {showSearch ? "Hide" : "Search Dates"}
+                {showSearch ? "隐藏" : "日期"}
                 </Button>
             </div>
             

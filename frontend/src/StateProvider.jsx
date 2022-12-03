@@ -1,7 +1,9 @@
 import React, { createContext, useContext, useReducer } from 'react'
-
 //Prepares the data layer
 export const StateContext = createContext();
+
+//pull information from the data layer
+export const useStateValue = () => useContext(StateContext);
 
 //wrap our app and provide the data layer
 export const StateProvider = ({ reducer, initialState, children }) => (
@@ -9,7 +11,4 @@ export const StateProvider = ({ reducer, initialState, children }) => (
         {children}
     </StateContext.Provider>
 );
-
-//pull information from the data layer
-export const useStateValue = ()=> useContext(StateContext);
 

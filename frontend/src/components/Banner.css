@@ -5,13 +5,10 @@
 }
 
 .banner__info{
-    background-color: rgb(0, 32, 80);
+    background-color: rgba(129, 129, 129, 0.556);
     color: white;
-    padding-top: 45.32vh;
-    padding-left: 80px;
-    padding-right: 80px;
-    padding-bottom: 40px;
-    width: 400px;
+    backdrop-filter: blur(4px);
+    width: 30rem;
     margin-left: 60vw;
     
 }
@@ -32,17 +29,8 @@
     text-transform: inherit !important;
     color: #e7e7e0 !important;
 }
-.banner__info > button{
-    background-color: #a09c7b;
-    color: #000000;
-    text-transform: inherit;
-    margin-top: 20px;
-    font-weight: 600;
-}
+
 .banner__info > button:hover{
     background-color:white ;
     color: #000000;
-}
-.banner__info>h5{
-    margin-top: 10px;
 }

@@ -4,8 +4,6 @@ import "react-date-range/dist/styles.css";//main style file
 import "react-date-range/dist/theme/default.css";
 // theme css file
 import { DateRangePicker } from "react-date-range";
-import Button from '@mui/material/Button';
-import PeopleIcon from '@mui/icons-material/People';
 
 
 // DATE PICKER COMPONENT
@@ -21,18 +19,10 @@ function Search({startDate,endDate,setEndDate,setStartDate}) {
         setEndDate(ranges.selection.endDate);
     }
     return (
-        <div className='search'>
+        <div className=''>
             <DateRangePicker ranges={
                 [selectionRange]} onChange=
-                {handleSelect} />
-            <h2>
-                人数
-                <PeopleIcon />
-            </h2>
-            <input min={0}
-                defaultValue={2}
-                type="number" />
-            
+                {handleSelect} />   
         </div>
     )
 }

@@ -94,7 +94,7 @@ function MyBooking() {
 
     return (
 
-        <div style={{ marginTop: "100px" }}>
+        <div className="grid grid-cols-2 gap-9 px-48" style={{ marginTop: "100px" }}>
             {bookings.map((e, i) => {
                 return (<BCard key={i} booking={e} data={data} handleAccept={handleAccept} handleDecline={handleDecline} handleDelete={handleDelete} />)
             })}

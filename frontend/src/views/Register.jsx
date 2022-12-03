@@ -73,7 +73,7 @@ function Register({ dispatch }) {
                         required
                         fullWidth
                         id="name"
-                        label="Name"
+                        label="名字"
                         name="name"
                         autoComplete="email"
                         autoFocus
@@ -87,7 +87,7 @@ function Register({ dispatch }) {
                         required
                         fullWidth
                         id="email"
-                        label="Email Address"
+                        label="电子邮箱"
                         name="email"
                         autoComplete="email"
                         autoFocus
@@ -101,7 +101,7 @@ function Register({ dispatch }) {
                         required
                         fullWidth
                         name="passwod"
-                        label="Password"
+                        label="密码"
                         type="password"
                         id="password"
                         //autoComplete="current-password"
@@ -115,7 +115,7 @@ function Register({ dispatch }) {
                         required
                         fullWidth
                         name="re-passwod"
-                        label="Re-enter Password"
+                        label="确认密码"
                         type="password"
                         id="re-password"
                         value={re}

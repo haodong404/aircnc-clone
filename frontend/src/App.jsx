@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import TopComponent from "./components/TopComponent";
@@ -10,18 +10,14 @@ import AllProperties from "./views/AllProperties";
 import MyProperties from "./views/MyProperties";
 import EditListing from "./views/EditListing";
 import BookProp from "./views/BookProp";
-import { useStateValue } from "./StateProvider";
 import MyBooking from "./views/MyBooking";
+import { useStateValue } from "./StateProvider";
 
 function App() {
   const [{ user }, dispatch] = useStateValue();
-
   return (
     <>
-    <h1 class="text-cyan-700">
-      HELLO
-    </h1>
-      {/* <Router>
+      <Router>
         <TopComponent user={user} dispatch={dispatch} />
         <Routes>
           <Route
@@ -40,7 +36,7 @@ function App() {
           <Route path="/myBooking" element={<MyBooking />}></Route>
           <Route path="/editListing" element={<EditListing />}></Route>
         </Routes>
-      </Router> */}
+      </Router>
     </>
   );
 }

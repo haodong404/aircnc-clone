@@ -34,38 +34,25 @@ function Header({ user, dispatch }) {
       style={{
         display: "flex",
         flexDirection: "row",
+        height: "3rem",
         justifyContent: "space-between",
-        backgroundColor: "grey",
+        backgroundColor: "white",
+        paddingLeft: "1rem",
+        paddingRight: "1rem",
       }}
     >
-      <div style={{ marginLeft: "20px" }}>
-        <Link
-          to="/"
-          style={{
-            textDecoration: "none",
-            color: "white",
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/34/34870.png"
-            style={{ height: "30px", width: "30px", marginRight: "5px" }}
-          />
-          <h2 className=" bg-orange-300">airbrb</h2>
-        </Link>
+      <div className="flex h-full items-center">
+        <h2 className=" text-zinc-600 font-semibold font-serif text-lg">
+          <a href="/">AIRBNB</a>
+        </h2>
       </div>
 
       {user && (
         <>
-          <div style={{ justifyContent: "right", margin: "10px" }}>
+          <div className="flex items-center">
             <Button
               style={{
-                margin: "10px",
-                backgroundColor: "grey",
-                color: "white",
-                fontWeight: "bold",
-                border: "1px solid black",
+                color: "#202020",
               }}
               onClick={() => {
                 navigate("/properties");
@@ -75,11 +62,7 @@ function Header({ user, dispatch }) {
             </Button>
             <Button
               style={{
-                margin: "10px",
-                backgroundColor: "grey",
-                color: "white",
-                fontWeight: "bold",
-                border: "1px solid black",
+                color: "#202020",
               }}
               onClick={() => {
                 navigate("/addListing");
@@ -89,11 +72,7 @@ function Header({ user, dispatch }) {
             </Button>
             <Button
               style={{
-                margin: "10px",
-                backgroundColor: "grey",
-                color: "white",
-                fontWeight: "bold",
-                border: "1px solid black",
+                color: "#202020",
               }}
               onClick={() => {
                 navigate("/myBooking");
@@ -103,11 +82,7 @@ function Header({ user, dispatch }) {
             </Button>
             <Button
               style={{
-                margin: "10px",
-                backgroundColor: "grey",
-                color: "white",
-                fontWeight: "bold",
-                border: "1px solid black",
+                color: "#202020",
               }}
               onClick={() => {
                 navigate("/myProperties");
@@ -124,14 +99,18 @@ function Header({ user, dispatch }) {
           onClick={(e) => {
             handleLogout(e);
           }}
-          style={{ margin: "15px", height: "50px", color: "white" }}
+          style={{}}
         >
-          <Avatar>{name.substring(0, 1).toUpperCase()}</Avatar>{" "}
+          <Avatar style={{
+            width: "2rem",
+            height: "2rem"
+          }}>{name.substring(0, 1).toUpperCase()}</Avatar>{" "}
           <h6 style={{ marginLeft: "10px" }}>注销</h6>
         </Button>
       ) : (
         <Button
           variant="contained"
+          style={{ margin: "10px" }}
           onClick={() => {
             navigate("/login");
           }}
