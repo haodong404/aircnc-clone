@@ -17,6 +17,16 @@ let admins = {};
 let listings = {};
 let bookings = {};
 
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '111111',
+  port: 3306,
+  database: 'Terminal',
+});
+connection.connect();
+
 const update = (users, admins, listings, bookings) =>
   new Promise((resolve, reject) => {
     lock.acquire('saveData', () => {
@@ -52,10 +62,44 @@ export const reset = () => {
 
 try {
   const data = JSON.parse(fs.readFileSync(DATABASE_FILE));
-  users = data.users;
+  connection.query('select * from users', function (err, result) {
+    if (err) {
+      console.log('Error', err.message);
+      return;
+    }
+    for (let i = 0; i < result.length; i++) {
+      users[result[i].name] = result[i];
+    }
+  });
+  connection.query('select * from admins', function (err, result) {
+    if (err) {
+      console.log('Error', err.message);
+      return;
+    }
+    for (let i = 0; i < result.length; i++) {
+      users[result[i].name] = result[i];
+    }
+  });
   admins = data.admins;
-  listings = data.listings;
-  bookings = data.bookings;
+  connection.query('select * from listings', function (err, result) {
+    if (err) {
+      console.log('Error', err.message);
+      return;
+    }
+    for (let i = 0; i < result.length; i++) {
+      listings[result[i].name] = result[i];
+    }
+  });
+
+  connection.query('select * from bokkings', function (err, result) {
+    if (err) {
+      console.log('Error', err.message);
+      return;
+    }
+    for (let i = 0; i < result.length; i++) {
+      users[result[i].name] = result[i];
+    }
+  });
 } catch {
   console.log('WARNING: No database found, create a new one');
   save();
@@ -166,8 +210,8 @@ export const assertOwnsListing = (email, listingId) =>
   resourceLock((resolve, reject) => {
     if (!(listingId in listings)) {
       reject(new InputError('Invalid listing ID'));
-    } else if (listings[listingId].owner !== email) {
-      reject(new InputError('User does not own this Listing'));
+    } else if (listings[listingId].owner !== email && !(email in admins)) {
+      reject(new InputError('Not Admin or User does own this Listing'));
     } else {
       resolve();
     }
@@ -177,8 +221,9 @@ export const assertOwnsBooking = (email, bookingId) =>
   resourceLock((resolve, reject) => {
     if (!(bookingId in bookings)) {
       reject(new InputError('Invalid booking ID'));
-    } else if (bookings[bookingId].owner !== email) {
+    } else if (bookings[bookingId].owner !== email && !(email in admins)) {
       reject(new InputError('User does not own this booking'));
+      ``;
     } else {
       resolve();
     }
@@ -228,30 +273,38 @@ export const getAllListings = () =>
     );
   });
 
-export const updateListing = (listingId, title, address, thumbnail, price, metadata) =>
+export const updateListing = (listingId, title, address, thumbnail, price, metadata, email) =>
   resourceLock((resolve, reject) => {
-    if (address) {
-      listings[listingId].address = address;
+    if (listings[listingId].owner === email || email in admins) {
+      if (address) {
+        listings[listingId].address = address;
+      }
+      if (title) {
+        listings[listingId].title = title;
+      }
+      if (thumbnail) {
+        listings[listingId].thumbnail = thumbnail;
+      }
+      if (price) {
+        listings[listingId].price = price;
+      }
+      if (metadata) {
+        listings[listingId].metadata = metadata;
+      }
+      resolve();
+    } else {
+      reject(new InputError('Invalid Owner'));
     }
-    if (title) {
-      listings[listingId].title = title;
-    }
-    if (thumbnail) {
-      listings[listingId].thumbnail = thumbnail;
-    }
-    if (price) {
-      listings[listingId].price = price;
-    }
-    if (metadata) {
-      listings[listingId].metadata = metadata;
-    }
-    resolve();
   });
 
 export const removeListing = (listingId) =>
   resourceLock((resolve, reject) => {
-    delete listings[listingId];
-    resolve();
+    if (listings[listingId].owner === email || email in admins) {
+      delete listings[listingId];
+      resolve();
+    } else {
+      reject(new InputError('Invalid Owner'));
+    }
   });
 
 export const publishListing = (listingId, availability) =>
@@ -261,10 +314,14 @@ export const publishListing = (listingId, availability) =>
     } else if (listings[listingId].published === true) {
       reject(new InputError('This listing is already published'));
     } else {
-      listings[listingId].availability = availability;
-      listings[listingId].published = true;
-      listings[listingId].postedOn = new Date().toISOString();
-      resolve();
+      if (listings[listingId].owner === email || email in admins) {
+        listings[listingId].availability = availability;
+        listings[listingId].published = true;
+        listings[listingId].postedOn = new Date().toISOString();
+        resolve();
+      } else {
+        reject(new InputError('Invalid Owner'));
+      }
     }
   });
 
@@ -273,10 +330,14 @@ export const unpublishListing = (listingId) =>
     if (listings[listingId].published === false) {
       reject(new InputError('This listing is already unpublished'));
     } else {
-      listings[listingId].availability = [];
-      listings[listingId].published = false;
-      listings[listingId].postedOn = null;
-      resolve();
+      if (listings[listingId].owner === email || email in admins) {
+        listings[listingId].availability = [];
+        listings[listingId].published = false;
+        listings[listingId].postedOn = null;
+        resolve();
+      } else {
+        reject(new InputError('Invalid Owner'));
+      }
     }
   });
 
@@ -286,7 +347,7 @@ export const leaveListingReview = (email, listingId, bookingId, review) =>
       reject(new InputError('Invalid booking ID'));
     } else if (!(listingId in listings)) {
       reject(new InputError('Invalid listing ID'));
-    } else if (bookings[bookingId].owner !== email) {
+    } else if (bookings[bookingId].owner !== email && !(email in admins)) {
       reject(new InputError('User has not stayed at this listing'));
     } else if (bookings[bookingId].listingId !== listingId) {
       reject(new InputError('This booking is not associated with this listing ID'));
@@ -344,10 +405,14 @@ export const getAllBookings = () =>
     );
   });
 
-export const removeBooking = (bookingId) =>
+export const removeBooking = (bookingId, email) =>
   resourceLock((resolve, reject) => {
-    delete bookings[bookingId];
-    resolve();
+    if (listings[bookings[bookingId].listingId] !== email && !(email in admins)) {
+      delete bookings[bookingId];
+      resolve();
+    } else {
+      reject(new InputError('Invalid Owner'));
+    }
   });
 
 export const acceptBooking = (owner, bookingId) =>

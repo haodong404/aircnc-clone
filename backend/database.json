@@ -13,7 +13,7 @@
     "j": {
       "name": "j",
       "password": "jj",
-      "sessionActive": false
+      "sessionActive": true
     },
     "vcoty233@163.com": {
       "name": "vcoty233@163.com",
@@ -52,18 +52,10 @@
     "176715663": {
       "title": "Penthouse",
       "owner": "q",
-      "address": {
-        "line1": "Cozy Apartment L-1 in Dacha",
-        "line2": "Arambol near Arambol Beach",
-        "line3": "Goa"
-      },
-      "price": "555",
+      "address": {},
+      "price": 350,
       "thumbnail": "https://a0.muscache.com/im/pictures/62f3a31a-01c2-4c0f-8e3e-3039b2c2ea0c.jpg?im_w=960",
-      "metadata": {
-        "bedrooms": "5",
-        "beds": "4",
-        "bathrooms": "2"
-      },
+      "metadata": {},
       "reviews": [],
       "availability": [
         {

@@ -126,7 +126,7 @@ app.put(
       const { listingid } = req.params;
       const { title, address, thumbnail, price, metadata } = req.body;
       await assertOwnsListing(email, listingid);
-      await updateListing(listingid, title, address, thumbnail, price, metadata);
+      await updateListing(listingid, title, address, thumbnail, price, metadata, email);
       return res.status(200).send({});
     }),
   ),
@@ -204,7 +204,7 @@ app.delete(
     authed(async (req, res, email) => {
       const { bookingid } = req.params;
       await assertOwnsBooking(email, bookingid);
-      await removeBooking(bookingid);
+      await removeBooking(bookingid, email);
       return res.status(200).send({});
     }),
   ),
